@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Nitu_Maria_Alexandra_ActivitateSD2026.c">
+    <ClCompile Include="Exercitiul1.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
