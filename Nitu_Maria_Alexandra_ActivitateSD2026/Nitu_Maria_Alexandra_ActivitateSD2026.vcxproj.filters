@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Exercitiul1.c">
+    <ClCompile Include="Exercitiul1\Exercitiul1.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
