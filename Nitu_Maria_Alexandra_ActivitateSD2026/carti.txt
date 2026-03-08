@@ -1,0 +1,4 @@
+1,350,45.5,Ultima noapte de dragoste - intaia noapte de razboi,Camil Petrescu,A
+2,200,30.0,Baltagul,Mihail Sadoveanu,B
+3,150,25.0,Enigma Otiliei,George Calinescu,C
+4,400,60.0,Cismigiu and Comp,Grigore Bajenaru,D

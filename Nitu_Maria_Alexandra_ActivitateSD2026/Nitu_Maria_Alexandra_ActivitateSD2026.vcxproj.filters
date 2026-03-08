@@ -15,8 +15,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Exercitiul1\Exercitiul1.c">
+    <ClCompile Include="Exercitiul2.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="carti.txt" />
   </ItemGroup>
 </Project>
