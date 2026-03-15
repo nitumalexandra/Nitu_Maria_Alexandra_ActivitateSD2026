@@ -1,87 +1,87 @@
-#define _CRT_SECURE_NO_WARNINGS
+#define _crt_secure_no_warnings
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-struct StructuraCarte {
+struct structuracarte {
 	int id;
-	int nrPagini;
+	int nrpagini;
 	float pret;
 	char* titlu;
 	char* autor;
 	unsigned char categorie;
 };
 
-typedef struct StructuraCarte Carte;
-typedef struct Nod Nod;
-typedef struct ListaDubla ListaDubla;
+typedef struct structuracarte carte;
+typedef struct nod nod;
+typedef struct listadubla listadubla;
 
-struct Nod {
-	Carte info;
-	Nod* next;
-	Nod* prev;
+struct nod {
+	carte info;
+	nod* next;
+	nod* prev;
 };
 
-struct ListaDubla {
-	Nod* prim;
-	Nod* ultim;
+struct listadubla {
+	nod* prim;
+	nod* ultim;
 };
 
-Carte citireCarteDinFisier(FILE* file) {
+carte citirecartedinfisier(file* file) {
 	char buffer[100];
 	char sep[3] = ",\n";
 	fgets(buffer, 100, file);
 	char* aux;
 
-	Carte c;
+	carte c;
 
 	aux = strtok(buffer, sep);
 	c.id = atoi(aux);
-	c.nrPagini = atoi(strtok(NULL, sep));
-	c.pret = atof(strtok(NULL, sep));
+	c.nrpagini = atoi(strtok(null, sep));
+	c.pret = atof(strtok(null, sep));
 
-	aux = strtok(NULL, sep);
+	aux = strtok(null, sep);
 	c.titlu = malloc(strlen(aux) + 1);
 	strcpy(c.titlu, aux);
 
-	aux = strtok(NULL, sep);
+	aux = strtok(null, sep);
 	c.autor = malloc(strlen(aux) + 1);
 	strcpy(c.autor, aux);
 
-	c.categorie = *strtok(NULL, sep);
+	c.categorie = *strtok(null, sep);
 
 	return c;
 }
 
-void afisareCarte(Carte carte) {
-	printf("Id: %d\n", carte.id);
-	printf("Pagini: %d\n", carte.nrPagini);
-	printf("Pret: %.2f\n", carte.pret);
-	printf("Titlu: %s\n", carte.titlu);
-	printf("Autor: %s\n", carte.autor);
-	printf("Categorie: %c\n\n", carte.categorie);
+void afisarecarte(carte carte) {
+	printf("id: %d\n", carte.id);
+	printf("pagini: %d\n", carte.nrpagini);
+	printf("pret: %.2f\n", carte.pret);
+	printf("titlu: %s\n", carte.titlu);
+	printf("autor: %s\n", carte.autor);
+	printf("categorie: %c\n\n", carte.categorie);
 }
 
-void afisareListaCarti(ListaDubla lista) {
-	Nod* p = lista.prim;
+void afisarelistacarti(listadubla lista) {
+	nod* p = lista.prim;
 	while (p) {
-		afisareCarte(p->info);
+		afisarecarte(p->info);
 		p = p->next;
 	}
 }
 
-void afisareInversaListaCarti(ListaDubla lista) {
-	Nod* p = lista.ultim;
+void afisareinversalistacarti(listadubla lista) {
+	nod* p = lista.ultim;
 	while (p) {
-		afisareCarte(p->info);
+		afisarecarte(p->info);
 		p = p->prev;
 	}
 }
 
-void adaugaCarteInLista(ListaDubla* lista, Carte carteNoua) {
-	Nod* nou = malloc(sizeof(Nod));
-	nou->info = carteNoua;
-	nou->next = nou->prev = NULL;
+void adaugacarteinlista(listadubla* lista, carte cartenoua) {
+	nod* nou = malloc(sizeof(nod));
+	nou->info = cartenoua;
+	nou->next = nou->prev = null;
 
 	if (lista->ultim) {
 		nou->prev = lista->ultim;
@@ -93,42 +93,42 @@ void adaugaCarteInLista(ListaDubla* lista, Carte carteNoua) {
 	}
 }
 
-ListaDubla* citireLDCartiDinFisier(const char* numeFisier) {
+listadubla* citireldcartidinfisier(const char* numefisier) {
 
-	FILE* file = fopen(numeFisier, "r");
+	file* file = fopen(numefisier, "r");
 
-	ListaDubla* lista = malloc(sizeof(ListaDubla));
-	lista->prim = NULL;
-	lista->ultim = NULL;
+	listadubla* lista = malloc(sizeof(listadubla));
+	lista->prim = null;
+	lista->ultim = null;
 
 	if (file) {
 		while (!feof(file)) {
-			adaugaCarteInLista(lista, citireCarteDinFisier(file));
+			adaugacarteinlista(lista, citirecartedinfisier(file));
 		}
 		fclose(file);
 	}
 	return lista;
 }
 
-void dezalocareLDCarti(ListaDubla** lista) {
+void dezalocareldcarti(listadubla** lista) {
 
-	Nod* p = (*lista)->prim;
+	nod* p = (*lista)->prim;
 
 	while (p) {
 		free(p->info.titlu);
 		free(p->info.autor);
-		Nod* aux = p;
+		nod* aux = p;
 		p = p->next;
 		free(aux);
 	}
 	free(*lista);
-	*lista = NULL;
+	*lista = null;
 }
 
-float calculeazaPretMediu(ListaDubla lista) {
+float calculeazapretmediu(listadubla lista) {
 	float suma = 0;
 	int count = 0;
-	Nod* p = lista.prim;
+	nod* p = lista.prim;
 
 	while (p) {
 		suma += p->info.pret;
@@ -142,16 +142,16 @@ float calculeazaPretMediu(ListaDubla lista) {
 		return 0;
 }
 
-void stergeCarteDupaID(ListaDubla* lista, int id) {
+void stergecartedupaid(listadubla* lista, int id) {
 
 	if (lista->prim && lista->prim->info.id == id) {
-		Nod* aux = lista->prim;
+		nod* aux = lista->prim;
 		lista->prim = aux->next;
 
 		if (lista->prim)
-			lista->prim->prev = NULL;
+			lista->prim->prev = null;
 		else
-			lista->ultim = NULL;
+			lista->ultim = null;
 
 		free(aux->info.titlu);
 		free(aux->info.autor);
@@ -160,7 +160,7 @@ void stergeCarteDupaID(ListaDubla* lista, int id) {
 		return;
 	}
 
-	Nod* p = lista->prim;
+	nod* p = lista->prim;
 	while (p && p->info.id != id) {
 		p = p->next;
 	}
@@ -177,19 +177,19 @@ void stergeCarteDupaID(ListaDubla* lista, int id) {
 	}
 }
 
-char* getAutorCarteScumpa(ListaDubla lista) {
+char* getautorcartescumpa(listadubla lista) {
 
 	if (lista.prim) {
 
-		float pretMax = lista.prim->info.pret;
+		float pretmax = lista.prim->info.pret;
 		char* autor = lista.prim->info.autor;
 
-		Nod* p = lista.prim->next;
+		nod* p = lista.prim->next;
 
 		while (p) {
 
-			if (p->info.pret > pretMax) {
-				pretMax = p->info.pret;
+			if (p->info.pret > pretmax) {
+				pretmax = p->info.pret;
 				autor = p->info.autor;
 			}
 			p = p->next;
@@ -198,22 +198,22 @@ char* getAutorCarteScumpa(ListaDubla lista) {
 		strcpy(rezultat, autor);
 		return rezultat;
 	}
-	return NULL;
+	return null;
 }
 
 int main() {
-	ListaDubla* lista = citireLDCartiDinFisier("carti.txt");
+	listadubla* lista = citireldcartidinfisier("cartiex2.txt");
 
-	afisareInversaListaCarti(*lista);
-	printf("Pret mediu: %.2f\n", calculeazaPretMediu(*lista));
+	afisareinversalistacarti(*lista);
+	printf("pret mediu: %.2f\n", calculeazapretmediu(*lista));
 
-	printf("Autor carte scumpa: %s\n", getAutorCarteScumpa(*lista));
-	stergeCarteDupaID(lista, 3);
+	printf("autor carte scumpa: %s\n", getautorcartescumpa(*lista));
+	stergecartedupaid(lista, 3);
 
-	printf("\nLista dupa stergere:\n");
+	printf("\nlista dupa stergere:\n");
 
-	afisareListaCarti(*lista);
-	dezalocareLDCarti(&lista);
+	afisarelistacarti(*lista);
+	dezalocareldcarti(&lista);
 
 	return 0;
 }
