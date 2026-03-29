@@ -15,17 +15,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Exercitiul2.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Exercitiul1.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Exercitiul3-HeapArbori.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <Text Include="cartiEx2.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="cartiEx2.txt" />
+    <ClCompile Include="Exercitiul4-Stiva.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

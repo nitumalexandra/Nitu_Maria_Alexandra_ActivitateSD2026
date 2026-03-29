@@ -1,4 +1,4 @@
-#define _crt_secure_no_warnings
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -27,7 +27,7 @@ struct listadubla {
 	nod* ultim;
 };
 
-carte citirecartedinfisier(file* file) {
+carte citirecartedinfisier(FILE* file) {
 	char buffer[100];
 	char sep[3] = ",\n";
 	fgets(buffer, 100, file);
@@ -37,18 +37,18 @@ carte citirecartedinfisier(file* file) {
 
 	aux = strtok(buffer, sep);
 	c.id = atoi(aux);
-	c.nrpagini = atoi(strtok(null, sep));
-	c.pret = atof(strtok(null, sep));
+	c.nrpagini = atoi(strtok(NULL, sep));
+	c.pret = atof(strtok(NULL, sep));
 
-	aux = strtok(null, sep);
+	aux = strtok(NULL, sep);
 	c.titlu = malloc(strlen(aux) + 1);
 	strcpy(c.titlu, aux);
 
-	aux = strtok(null, sep);
+	aux = strtok(NULL, sep);
 	c.autor = malloc(strlen(aux) + 1);
 	strcpy(c.autor, aux);
 
-	c.categorie = *strtok(null, sep);
+	c.categorie = *strtok(NULL, sep);
 
 	return c;
 }
@@ -81,7 +81,7 @@ void afisareinversalistacarti(listadubla lista) {
 void adaugacarteinlista(listadubla* lista, carte cartenoua) {
 	nod* nou = malloc(sizeof(nod));
 	nou->info = cartenoua;
-	nou->next = nou->prev = null;
+	nou->next = nou->prev = NULL;
 
 	if (lista->ultim) {
 		nou->prev = lista->ultim;
@@ -95,11 +95,11 @@ void adaugacarteinlista(listadubla* lista, carte cartenoua) {
 
 listadubla* citireldcartidinfisier(const char* numefisier) {
 
-	file* file = fopen(numefisier, "r");
+	FILE* file = fopen(numefisier, "r");
 
 	listadubla* lista = malloc(sizeof(listadubla));
-	lista->prim = null;
-	lista->ultim = null;
+	lista->prim = NULL;
+	lista->ultim = NULL;
 
 	if (file) {
 		while (!feof(file)) {
@@ -122,7 +122,7 @@ void dezalocareldcarti(listadubla** lista) {
 		free(aux);
 	}
 	free(*lista);
-	*lista = null;
+	*lista = NULL;
 }
 
 float calculeazapretmediu(listadubla lista) {
@@ -149,9 +149,9 @@ void stergecartedupaid(listadubla* lista, int id) {
 		lista->prim = aux->next;
 
 		if (lista->prim)
-			lista->prim->prev = null;
+			lista->prim->prev = NULL;
 		else
-			lista->ultim = null;
+			lista->ultim = NULL;
 
 		free(aux->info.titlu);
 		free(aux->info.autor);
@@ -198,7 +198,7 @@ char* getautorcartescumpa(listadubla lista) {
 		strcpy(rezultat, autor);
 		return rezultat;
 	}
-	return null;
+	return NULL;
 }
 
 int main() {

@@ -22,7 +22,7 @@ Student initializare(int id, float medie, int varsta, const char* nume, char an)
 
     if (nume) {
         s.nume = (char*)malloc(strlen(nume) + 1);
-        strcpy(s.nume, nume);
+        strcpy_s(s.nume, strlen(nume) + 1, nume);
     }
     else {
         s.nume = NULL;
