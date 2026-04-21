@@ -19,10 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <Text Include="angajatiEx5.txt" />
     <Text Include="cartiEx2.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Exercitiul4-Stiva.c" />
+    <ClCompile Include="Exercitiul 5.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

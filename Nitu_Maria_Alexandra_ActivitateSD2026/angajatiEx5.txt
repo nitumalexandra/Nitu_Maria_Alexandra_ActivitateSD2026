@@ -1,0 +1,5 @@
+1,Ion Popescu,3500.50,IT,2021-05-10
+2,Marian Ionescu,4500.00,Marketing,2020-11-15
+3,Elena Vasilescu,3200.00,HR,2019-03-22
+4,Cristian Georgescu,5000.00,Finance,2018-08-30
+5,Maria Dumitrescu,4200.75,Sales,2021-01-14

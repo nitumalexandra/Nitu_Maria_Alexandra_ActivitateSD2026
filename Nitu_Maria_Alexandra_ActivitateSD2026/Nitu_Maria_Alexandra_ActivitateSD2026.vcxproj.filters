@@ -16,9 +16,10 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="cartiEx2.txt" />
+    <Text Include="angajatiEx5.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Exercitiul4-Stiva.c">
+    <ClCompile Include="Exercitiul 5.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
