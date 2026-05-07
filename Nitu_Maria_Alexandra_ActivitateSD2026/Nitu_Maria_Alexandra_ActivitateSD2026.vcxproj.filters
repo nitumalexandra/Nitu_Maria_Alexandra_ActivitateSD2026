@@ -19,7 +19,7 @@
     <Text Include="angajatiEx5.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Exercitiul6.c">
+    <ClCompile Include="Exercitiul7.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
