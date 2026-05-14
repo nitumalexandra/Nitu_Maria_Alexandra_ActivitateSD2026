@@ -23,7 +23,7 @@
     <Text Include="cartiEx2.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Exercitiul10.c" />
+    <ClCompile Include="Exercitiul11.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
