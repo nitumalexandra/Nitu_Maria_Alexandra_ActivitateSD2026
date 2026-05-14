@@ -256,7 +256,7 @@ int main() {
 	printf("\nAFISARE GRAF:");
 	afisareGraf(graf);
 
-	printf("\nDFS pornind de la jocul cu id-ul 1:");
+	printf("\nDFS pornind de la jocul cu id-ul 1:");  
 	DFS(graf, 1);
 
 	dezalocareGraf(&graf);
